@@ -18,7 +18,7 @@ const DUMMY_PLACES = [
     creator: "u1",
   },
   {
-    id: "id1",
+    id: "id2",
     title: "Gutkauf",
     description: "Good place for grocery",
     imageUrl:
