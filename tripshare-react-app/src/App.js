@@ -13,7 +13,6 @@ import UserPlaces from "./places/pages/UserPlaces";
 import Auth from "./user/pages/Auth";
 import UpdatePlace from "./places/pages/UpdatePlace";
 import { AuthContext } from "./shared/context/auth-context";
-import { use } from "react";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
