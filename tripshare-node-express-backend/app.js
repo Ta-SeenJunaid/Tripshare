@@ -1,10 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
 const placesRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/users-routes");
 const HttpError = require("./models/http-error");
 
+dotenv.config();
+const mongoDbPassword = process.env.MONGO_DB_PASSWORD;
+const mongoDbUser = process.env.MONGO_DB_USER;
 const app = express();
 
 app.use(bodyParser.json());
@@ -26,4 +31,13 @@ app.use((error, req, res, next) => {
     .json({ message: error.message || "An unknoen error occurred!!" });
 });
 
-app.listen(5000);
+mongoose
+  .connect(
+    `mongodb+srv://${mongoDbUser}:${mongoDbPassword}@cluster0.4hltx.mongodb.net/places?retryWrites=true&w=majority&appName=Cluster0`
+  )
+  .then(() => {
+    app.listen(5000);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
