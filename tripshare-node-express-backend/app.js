@@ -33,7 +33,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://${mongoDbUser}:${mongoDbPassword}@cluster0.4hltx.mongodb.net/places?retryWrites=true&w=majority&appName=Cluster0`
+    `mongodb+srv://${mongoDbUser}:${mongoDbPassword}@cluster0.4hltx.mongodb.net/tripshare?retryWrites=true&w=majority&appName=Cluster0`
   )
   .then(() => {
     app.listen(5000);
